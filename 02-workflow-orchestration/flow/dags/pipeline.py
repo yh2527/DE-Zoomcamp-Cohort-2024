@@ -3,7 +3,6 @@ import pendulum
 from google.cloud import storage
 from google.oauth2.service_account import Credentials
 import pandas as pd
-from airflow.providers.google.cloud.transfers.local_to_gcs import LocalFilesystemToGCSOperator
 import os
 import pyarrow as pa
 import pyarrow.parquet as pq
@@ -12,6 +11,7 @@ url_prefix = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/'
 color = 'green'
 years = [2020]
 months = [10, 11, 12]
+path_key_file = '/opt/airflow/config/sa_private_key_decoded.json'
 
 @dag(
     schedule=None,
@@ -76,16 +76,24 @@ def green_taxi_ingestion():
         return df
 
     @task
-    def upload_to_gcs(df: pd.DataFrame, bucket_name: str, object_name: str):
+    def upload_to_gcs(df: pd.DataFrame, bucket_name: str, table_name: str):
         project_id = 'github-activities-412623'
-        table_name = 'hw2-green_taxi_files'
         root_path = f'{bucket_name}/{table_name}'
+        credentials_path = os.path.expanduser(path_key_file)
 
 
-        credentials_path = os.path.expanduser('/opt/airflow/config/decoded_service_account_file.json')
-        #credentials = Credentials.from_service_account_file(credentials_path)
-        #client = storage.Client(credentials=credentials, project=credentials.project_id)
+        # delete existing blobs/objects
+        credentials = Credentials.from_service_account_file(credentials_path)
+        client = storage.Client(credentials=credentials, project=credentials.project_id)
+        bucket = client.bucket(bucket_name)
+
+        blobs = client.list_blobs(bucket, prefix=table_name)
+
+        for blob in blobs:
+            blob.delete()
         
+
+        # ingest data into gcs
         os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
 
         table = pa.Table.from_pandas(df)
@@ -96,8 +104,6 @@ def green_taxi_ingestion():
             partition_cols = ['lpep_pickup_date'],
             filesystem = gcs
         )
-
-
 
         # Save DataFrame to a file
         #filename = '/tmp/dataframe_to_upload.parquet'
@@ -111,13 +117,11 @@ def green_taxi_ingestion():
         # Optionally, remove the file after uploading
         #os.remove(filename)
 
-        return object_name
-
+        return table_name
 
     df = df_all(url_prefix, color, years, months)
     df_transformed = transformation(df)
     upload_to_gcs(df_transformed, 'hw2-storage-bucket_github-activities-412623',
-                  'hw2_green_taxi.parquet')
-
+                  'hw2_green_taxi_files')
 
 green_taxi_ingestion()

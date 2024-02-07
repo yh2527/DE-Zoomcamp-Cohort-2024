@@ -39,9 +39,16 @@ resource "google_project_iam_binding" "service_account" {
   ]
 }
 
+/*
 resource "local_file" "sa_private_key_file" {
   content      = google_service_account_key.service_account_key.private_key
   filename     = "${path.module}/sa_private_key.json"
   file_permission = "0600"
 }
+*/
 
+resource "local_file" "sa_private_key_file_decoded" {
+  content         = base64decode(google_service_account_key.service_account_key.private_key)
+  filename        = "../flow/config/sa_private_key_decoded.json"
+  file_permission = "0600"
+}
