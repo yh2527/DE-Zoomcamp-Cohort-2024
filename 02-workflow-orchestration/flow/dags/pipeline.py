@@ -14,7 +14,8 @@ months = [10, 11, 12]
 path_key_file = '/opt/airflow/config/sa_private_key_decoded.json'
 
 @dag(
-    schedule=None,
+    #schedule=None,
+    schedule_interval='0 5 * * *',  # daily at 05:00 UTC
     start_date=pendulum.datetime(2024, 2, 3, tz="UTC"),
     catchup=False,
     tags=["hw2"],
@@ -74,6 +75,13 @@ def green_taxi_ingestion():
         print(f"Columns converted to snake_case: {changed_columns_count}")
         
         return df
+    
+    @task()
+    def test_output(output_df):
+        assert 'vendor_id' in output_df.columns, "vendor_id is not a column in the DataFrame"
+        assert (output_df['passenger_count'] > 0).all(), "Found rows with passenger_count <= 0"
+        assert (output_df['trip_distance'] > 0).all(), "Found rows with trip_distance <= 0"
+        return output_df
 
     @task
     def upload_to_gcs(df: pd.DataFrame, bucket_name: str, table_name: str):
@@ -121,7 +129,8 @@ def green_taxi_ingestion():
 
     df = df_all(url_prefix, color, years, months)
     df_transformed = transformation(df)
-    upload_to_gcs(df_transformed, 'hw2-storage-bucket_github-activities-412623',
+    tested_df = test_output(df_transformed)
+    upload_to_gcs(tested_df, 'hw2-storage-bucket_github-activities-412623',
                   'hw2_green_taxi_files')
 
 green_taxi_ingestion()
