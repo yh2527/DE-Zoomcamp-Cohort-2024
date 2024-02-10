@@ -14,8 +14,8 @@ months = [10, 11, 12]
 path_key_file = '/opt/airflow/config/sa_private_key_decoded.json'
 
 @dag(
-    #schedule=None,
-    schedule_interval='0 5 * * *',  # daily at 05:00 UTC
+    schedule=None,
+    #schedule_interval='0 5 * * *',  # daily at 05:00 UTC
     start_date=pendulum.datetime(2024, 2, 3, tz="UTC"),
     catchup=False,
     tags=["hw2"],
