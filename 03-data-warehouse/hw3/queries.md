@@ -1,6 +1,6 @@
 <h3>SQL code for HW3 BigQuery</h3>
 
-#To create the external table containing all 2022 green tripdata:
+# To create the external table containing all 2022 green tripdata:
 ```
 CREATE EXTERNAL TABLE `github-activities-412623.hw3.green_2022_external`
 OPTIONS (
@@ -8,6 +8,7 @@ OPTIONS (
     uris = ['gs://hw2-storage-bucket_github-activities-412623/green/*.parquet']
 )
 ```
+# To create the internal table containing all 2022 green tripdata:
 ```
 CREATE TABLE `github-activities-412623.hw3.green_2022_materialized`
 AS
