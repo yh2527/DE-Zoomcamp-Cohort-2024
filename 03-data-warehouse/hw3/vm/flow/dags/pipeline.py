@@ -14,6 +14,7 @@ url_prefix = 'https://d37ci6vzurychx.cloudfront.net/trip-data'
     schedule=None,
     #schedule_interval='0 5 * * *',  # daily at 05:00 UTC
     start_date=pendulum.datetime(2024, 2, 9, tz="UTC"),
+    is_paused_upon_creation=False,
     catchup=False,
     tags=["hw3"],
     params={

@@ -45,6 +45,12 @@ variable "vpc_network_name" {
   type        = string
 }
 
+#static_ip name
+variable "gce_static_ip_name" {
+  description = "gce_static_ip_name (source: terraform.tfvars)"
+  type        = string
+}
+
 /*
 variable "repository" {
   type        = string
