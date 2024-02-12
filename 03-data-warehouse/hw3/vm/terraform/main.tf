@@ -27,6 +27,7 @@ resource "google_project_iam_binding" "service_account" {
   project = var.project_id
   for_each = toset([
     "roles/storage.admin",
+    "roles/bigquery.admin",
     "roles/storage.objectAdmin"
   ])
   role = each.key

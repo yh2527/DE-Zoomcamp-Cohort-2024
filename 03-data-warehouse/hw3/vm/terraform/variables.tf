@@ -51,6 +51,18 @@ variable "gce_static_ip_name" {
   type        = string
 }
 
+#bigQuery dataset name
+variable "bq_dataset" {
+  description = "bq_dataset (source: terraform.tfvars)"
+  type        = string
+}
+
+#bigQuery table name
+variable "table_id" {
+  description = "table_id (source: terraform.tfvars)"
+  type        = string
+}
+
 /*
 variable "repository" {
   type        = string
