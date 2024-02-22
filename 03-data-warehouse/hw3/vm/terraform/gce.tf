@@ -1,3 +1,17 @@
+# Terraform Configuration for GCP Virtual Machine with secure SSH access and a static IP address. 
+
+# The configuration includes:
+
+# SSH Key Generation
+# Compute Engine API Activation
+# Static IP Configuration
+# Firewall rules for allowing access to Airflow webservice
+# GCE Instance Provisioning**: Deploys a GCE instance configured with the generated SSH key for
+# access, and sets up various provisioning steps to prepare the instance for running the data
+# pipeline. This includes file transfers for setup scripts, Docker Compose configurations, environment 
+# variables, and custom shell scripts to finalize the setup.
+
+
 # generate ssh keys
 resource "tls_private_key" "ssh_key" {
   algorithm = "RSA"

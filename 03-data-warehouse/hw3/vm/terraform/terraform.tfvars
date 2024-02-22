@@ -1,8 +1,11 @@
-// Change these information as your GCP ProjectId, region and zone setting
+# GCP Configuration Variables
+
+# Update these variables to match your GCP Project ID, region, and zone preferences.
 project_id = "github-activities-412623" # CHANGE-THIS
 region     = "us-west2"        # CHANGE-THIS
 zone       = "us-west2-a"      # CHANGE-THIS
 
+# Additional Configuration
 account_id         = "hw2-zoomcamp-account"
 vpc_network_name   = "vm-vpc-hw2"
 gce_name           = "vm-hw2"

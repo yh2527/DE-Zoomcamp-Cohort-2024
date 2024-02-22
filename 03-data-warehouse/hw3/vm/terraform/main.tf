@@ -1,3 +1,15 @@
+# Terraform Configuration for GCP Resources
+
+# This Terraform scripts defines the required providers, specifies the GCP project, region, and zone settings, 
+# and manages the creation and configuration of a service account with specific roles. Additionally,
+# it handles the generation and local storage of a service account key for secure access.
+
+# Key components include:
+# - Configuration of the `google` provider with project, region, and zone information
+# - Creation of a Google Service Account and Service Account Key for managing GCP resources
+# - Assignment of IAM roles (`storage.admin`, `storage.objectAdmin`) to the service account for GCS
+# - Service account's private key not needed because the pipeline will be running in the vm
+
 terraform {
   required_providers {
     google = {
