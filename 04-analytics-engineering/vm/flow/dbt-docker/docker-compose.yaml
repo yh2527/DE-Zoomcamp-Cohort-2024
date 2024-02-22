@@ -1,0 +1,12 @@
+version: '3'
+services:
+  dbt-bq:
+    build:
+      context: .
+      target: dbt-bigquery
+    image: dbt/bigquery
+    volumes:
+      - ./dbt/taxi_rides_ny:/usr/app # Mounts the current directory to /usr/app in the container for dbt project files
+      - ./.dbt/:/root/.dbt/ # Corrected path for mounting the .dbt directory
+    network_mode: host
+~                       

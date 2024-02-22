@@ -1,0 +1,39 @@
+{
+  "csvOptions": {
+    "allowJaggedRows": false,
+    "allowQuotedNewlines": false,
+    "encoding": "UTF-8",
+    "fieldDelimiter": ",",
+    "preserveAsciiControlCharacters": false,
+    "quote": "\"",
+    "skipLeadingRows": 1
+  },
+  "sourceFormat": "CSV",
+  "sourceUris": [
+    "gs://hw4-storage-bucket_github-activities-412623/green/*"
+  ],
+  "schema": {
+    "fields": [
+      {"name": "VendorID", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "lpep_pickup_datetime", "type": "TIMESTAMP", "mode": "NULLABLE"},
+      {"name": "lpep_dropoff_datetime", "type": "TIMESTAMP", "mode": "NULLABLE"},
+      {"name": "store_and_fwd_flag", "type": "STRING", "mode": "NULLABLE"},
+      {"name": "RatecodeID", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "PULocationID", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "DOLocationID", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "passenger_count", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "trip_distance", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "fare_amount", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "extra", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "mta_tax", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "tip_amount", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "tolls_amount", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "ehail_fee", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "improvement_surcharge", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "total_amount", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "payment_type", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "trip_type", "type": "FLOAT", "mode": "NULLABLE"},
+      {"name": "congestion_surcharge", "type": "FLOAT", "mode": "NULLABLE"}
+    ]
+  }
+}
