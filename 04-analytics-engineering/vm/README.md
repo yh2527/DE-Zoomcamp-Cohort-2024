@@ -14,7 +14,7 @@ The code automates the following tasks:
 
 - **Data Ingestion Triggering**: Executes a bash script to trigger Airflow DAG for multiple months of data files.
 
-- **BigQuery Dataset Setup**: The terraform scripts also prepares a BigQuery dataset to allow for the creation of external tables once the source data is available in the storage bucket. This setup is crucial for querying the ingested data and performing further analysis.
+- **BigQuery Dataset Setup**: The terraform scripts also prepares a BigQuery dataset and creates external tables once the source data is available in the storage bucket. 
 
 ## Workflow
 
