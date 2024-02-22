@@ -1,3 +1,5 @@
+# This terraform script configures the AWS Provider and creates an S3 storage bucket.
+
 terraform {
   required_providers {
     aws = {

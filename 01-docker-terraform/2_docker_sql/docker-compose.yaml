@@ -1,3 +1,7 @@
+# This docker-compose.yml file sets up a Docker network with two services: Postgres and PgAdmin.
+# It configures necessary environment variables, volume mounting, and port mapping for both containers.
+
+
 services:
   pgdatabase:
     image: postgres:13
