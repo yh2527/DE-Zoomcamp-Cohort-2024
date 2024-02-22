@@ -23,8 +23,7 @@ This repository is a record of my participation and progression through the 2024
 
 * Data Lake
 * Workflow orchestration
-* Workflow orchestration with Mage
-* Homework
+* Homework using Airflow as the orchestrator
 
 [More details](02-workflow-orchestration/)
 
