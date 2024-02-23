@@ -8,28 +8,27 @@ This repository is a record of my participation and progression through the 2024
 
 ### [Module 1: Containerization and Infrastructure as Code](01-docker-terraform/)
 
-* Course overview
-* Introduction to GCP
+* Tech stack: Python
+* Introduction to Google Cloud Platform
 * Docker and docker-compose
-* Running Postgres locally with Docker
+* Postgres
 * Setting up infrastructure on GCP with Terraform
-* Preparing the environment for the course
-* Homework
 
 [More details](01-docker-terraform/)
 
 
 ### [Module 2: Workflow Orchestration](02-workflow-orchestration/)
 
+* Tech stack: Python, Cloud Storage Buckets, Terraform, Docker, Airflow
 * Data Lake
 * Workflow orchestration
-* Homework using Airflow as the orchestrator
 
 [More details](02-workflow-orchestration/)
 
 
 ### [Module 3: Data Warehouse](03-data-warehouse/)
 
+* Tech stack: Python, SQL, BigQuery, Virtual Machine, Terraform, Bash scripts
 * Data Warehouse
 * BigQuery
 * Partitioning and clustering
@@ -42,6 +41,7 @@ This repository is a record of my participation and progression through the 2024
 
 ### [Module 4: Analytics engineering](04-analytics-engineering/)
 
+* Tech stack: Python, SQL, BigQuery, dbt, Terraform, Bash scripts
 * Basics of analytics engineering
 * dbt (data build tool)
 * BigQuery and dbt
