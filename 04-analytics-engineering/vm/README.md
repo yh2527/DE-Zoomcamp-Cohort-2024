@@ -1,3 +1,5 @@
+![Dashboard](LookerStudio.png)
+
 # GCP Infrastructure and Data Pipeline Setup
 
 This directory contains Terraform scripts and additional configuration files designed to deploy a comprehensive data pipeline on Google Cloud Platform (GCP). The infrastructure and services set up by this code are tailored for data ingestion and processing, utilizing several GCP services along with Docker and Airflow for orchestration.

@@ -42,14 +42,13 @@ Tech stack: Python, SQL, BigQuery, Virtual Machine, Terraform, Bash scripts
 ### [Module 4: Analytics engineering](04-analytics-engineering/)
 
 Tech stack: Python, SQL, BigQuery, Virtual Machine, dbt, Terraform, Bash scripts
-* Basics of analytics engineering
 * dbt (data build tool)
 * BigQuery and dbt
 * Postgres and dbt
 * dbt models
 * Testing and documenting
 * Deployment to the cloud and locally
-* Visualizing the data with google data studio and metabase
+* Dashboard with Looker Studio
 
 
 [More details](04-analytics-engineering/)
