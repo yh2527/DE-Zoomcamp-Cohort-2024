@@ -1,4 +1,4 @@
-![Dashboard](LookerStudio.png)
+![Dashboard](Dashboard.png)
 
 # GCP Infrastructure and Data Pipeline Setup
 
